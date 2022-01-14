@@ -13,6 +13,10 @@ public class CircularLinkedListApplication {
         node02.next = node03;
         node03.next = node02;
 
+        CircularLinkedList node04 = new CircularLinkedList(3500);
+        node04.next = node03;
+        node03.next = node04;
+
 
         System.out.println("Iterate over circular linked list");
         iterate(head);
@@ -24,7 +28,10 @@ public class CircularLinkedListApplication {
         iterate(insertAtBegin(node01, 800));
 
         System.out.println("\nDelete from the begining");
-        iterate(removeTheHead(node02));
+        //iterate(removeTheHead(node02));
+
+        System.out.println("\nDelete from the begining - Efficient");
+        iterate(removeHeadEfficient(node04));
     }
 
     //Corner case when there is only one element inside the Circular linked list
@@ -76,7 +83,7 @@ public class CircularLinkedListApplication {
         return head;
     }
 
-    //remove the head
+    //remove the head in O(n)
     public static CircularLinkedList removeTheHead(CircularLinkedList head) {
         if (head == null) {
             return null;
@@ -90,10 +97,36 @@ public class CircularLinkedListApplication {
         return curr.next;
     }
 
+    //remove from front in O(1)
     public static CircularLinkedList removeHeadEfficient(CircularLinkedList head){
         if(head == null){
-
+            return null;
         }
 
+        CircularLinkedList curr= head.next;
+        int temp = head.next.data;
+        head.next.data= head.data;
+        head.data=temp;
+
+        head.next=curr.next;
+        curr.next=null;
+        return head;
+    }
+
+    //delete the kth node of the Linked List
+    public static CircularLinkedList removeKthNode(CircularLinkedList head, int q){
+        if(head==null){
+            return head;
+        }
+        if(q==1){
+            removeTheHead(head);
+        }
+
+        CircularLinkedList curr= head;
+        for(int i=0; i<q-2; i++){
+            curr= curr.next;
+        }
+        curr.next = curr.next.next;
+        return head;
     }
 }
