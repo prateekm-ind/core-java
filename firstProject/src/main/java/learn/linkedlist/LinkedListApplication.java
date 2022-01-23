@@ -350,4 +350,26 @@ public class LinkedListApplication {
         }
         return false;
     }
+
+    public static LinkedListNode detectAndRemoveALoop(LinkedListNode head) {
+        LinkedListNode slow = head;
+        LinkedListNode fast = head;
+        while (fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if (slow==fast){
+                break;
+            }
+        }
+        if(slow!=fast){
+            return head;
+        }
+        slow=head;
+        while (slow.next!=fast.next){
+            slow=slow.next;
+            fast=fast.next;
+        }
+        fast.next=null;
+        return head;
+    }
 }
