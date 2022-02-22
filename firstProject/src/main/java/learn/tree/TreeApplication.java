@@ -3,7 +3,7 @@ package learn.tree;
 import java.util.*;
 
 public class TreeApplication {
-    static int maxLevel=0;
+    static int maxLevel = 0;
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
@@ -174,10 +174,10 @@ public class TreeApplication {
         return preOrder;
     }
 
-    //if height of leaf-node>1
-//    public static boolean isBalanced(TreeNode root) {
-//        return balancedHeight(root) != -1;
-//    }
+    //    if (height of leaf-node>1
+    public static boolean isBalanced01(TreeNode root) {
+        return balancedHeight(root) != -1;
+    }
 
     public static int balancedHeight(TreeNode root) {
         if (root == null) {
@@ -687,5 +687,16 @@ public class TreeApplication {
             }
         }
         return node;
+    }
+
+    //Convert a given tree to its Sum Tree
+    public int convertTree(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int sum = convertTree(root.left) + convertTree(root.right);
+        //if()
+        return 0;
     }
 }

@@ -12,6 +12,11 @@ public class ExampleAbstraction {
             }
 
             @Override
+            protected void exampleProtectedAbstractMethod() {
+
+            }
+
+            @Override
             void exampleDefaultMethod() {
 
             }

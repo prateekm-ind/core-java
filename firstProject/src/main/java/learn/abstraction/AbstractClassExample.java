@@ -21,6 +21,9 @@ public abstract class AbstractClassExample {
     //must be public
     //private abstract void examplePrivateAbstractMethod();
 
+    //can be protected
+    protected abstract void exampleProtectedAbstractMethod();
+
     //public by default
     abstract void exampleDefaultMethod();
 

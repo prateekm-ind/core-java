@@ -1,5 +1,8 @@
 package learn.multithreading;
 
+import learn.multithreading.synchronizedExample.DisplayName;
+import learn.multithreading.synchronizedExample.SynchronizedDemoClass;
+
 public class MyThread extends Thread{
     public MyThread() {
         super.start();

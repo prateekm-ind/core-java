@@ -12,6 +12,11 @@ public class ConcreteImpl extends AbstractClassExample implements ExampleInterfa
     }
 
     @Override
+    protected void exampleProtectedAbstractMethod() {
+        System.out.println("inside protected method");
+    }
+
+    @Override
     void exampleDefaultMethod() {
         System.out.println("Inside the example default method");
     }

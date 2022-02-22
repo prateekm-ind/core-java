@@ -17,6 +17,18 @@ public class CircularLinkedList {
     //All sort of operations becomes complex due to its circular nature
     public CircularLinkedList(int data) {
         this.data = data;
-        this.next=null;
+        this.next = null;
+    }
+
+    public CircularLinkedList getNext() {
+        return this.next;
+    }
+
+    public int getData() {
+        return this.data;
+    }
+
+    public void setNext(CircularLinkedList next) {
+        this.next = next;
     }
 }

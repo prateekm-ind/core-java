@@ -13,4 +13,12 @@ public final class ExampleImmutableClass {
         this.bankName = bankName;
         this.ifsc = ifsc;
     }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public String getIfsc() {
+        return ifsc;
+    }
 }
