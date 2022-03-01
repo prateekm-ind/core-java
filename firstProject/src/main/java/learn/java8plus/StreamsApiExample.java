@@ -2,7 +2,10 @@ package learn.java8plus;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamsApiExample {
@@ -64,7 +67,7 @@ public class StreamsApiExample {
 
         //this will throw an  IllegalStateException
         // : streams has already been operated
-        namesStream.forEach(System.out::println);
+        //namesStream.forEach(System.out::println);
 
 
         /*
@@ -74,7 +77,6 @@ public class StreamsApiExample {
          *   -   Performs internal iterations to iterate through elements
          *
          * */
-
     }
 
 }
