@@ -27,8 +27,9 @@ public class ConcreteImpl extends AbstractClassExample implements ExampleInterfa
         //can access protected static method in the child class
         AbstractClassExample.exampleProtectedStatic();
 
-        //can't access the private static method in the child class
-        //will throw a compile-time error
+        /*  can't access the private static method in the child class
+        *   will throw a compile-time error
+        */
         //AbstractClassExample.examplePrivateStatic();
     }
 

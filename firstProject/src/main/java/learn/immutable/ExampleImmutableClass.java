@@ -21,4 +21,6 @@ public final class ExampleImmutableClass {
     public String getIfsc() {
         return ifsc;
     }
+
+    //implement soft-copy or hard-copy
 }

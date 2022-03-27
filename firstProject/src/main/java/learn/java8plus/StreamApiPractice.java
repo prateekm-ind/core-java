@@ -9,6 +9,30 @@ import java.util.stream.Stream;
 
 public class StreamApiPractice {
 
+    /*
+    *   Stream Api
+    *   - Not all stream operations are stateful
+    *   - doesn't maintain any state although operations are stateful
+    *   Intermediate Operations
+    *   -   Stateful functions
+    *           -   distinct()
+    *           -   sorted()
+    *           -   skip()
+    *           -   limit()
+    *   -   Stateless functions
+    *           -   map()
+    *           -   filter()
+    *
+    *   -   ShortCircuit Operations
+    *           -   limit()
+    *           -   findFirst()
+    *           -   findAny()
+    *           -   anyMatch()
+    *           -   allMatch()
+    *           -   noneMatch()
+    *   -
+    *
+    * */
     public static void main(String[] args) {
         List<Student> list = StudentDatabase.getAllStudents();
 

@@ -60,22 +60,22 @@ public class StreamApiNumeric {
          *   LongStream to DoubleStream
          * */
         System.out.println("\n===LongStream to DoubleStream===");
-        LongStream.rangeClosed(0,10)
+        LongStream.rangeClosed(0, 10)
                 .asDoubleStream()
-                .forEach(x-> System.out.print(x+", "));
+                .forEach(x -> System.out.print(x + ", "));
 
         /*
          *   Stream API
          *   Aggregate functions sum(), min(), max(), average()
          * */
         System.out.println("\n===Aggregate function===");
-        int sumOfFirstFifty = IntStream.rangeClosed(1,50).sum();
+        int sumOfFirstFifty = IntStream.rangeClosed(1, 50).sum();
         System.out.println(sumOfFirstFifty);
 
-        OptionalInt optionalInt = IntStream.rangeClosed(50,50).max();
+        OptionalInt optionalInt = IntStream.rangeClosed(50, 50).max();
         System.out.println(optionalInt);
 
-        OptionalDouble optionalDouble = LongStream.rangeClosed(1,50).average();
+        OptionalDouble optionalDouble = LongStream.rangeClosed(1, 50).average();
         System.out.println(optionalDouble);
 
         /*
@@ -83,7 +83,7 @@ public class StreamApiNumeric {
          *   Boxing, Unboxing of Numeric Streams
          * */
         System.out.println("===Numeric Stream boxing===");
-        List<Integer> integerList = IntStream.range(0,10)
+        List<Integer> integerList = IntStream.range(0, 10)
                 .boxed()
                 .collect(Collectors.toList());
 
@@ -91,8 +91,17 @@ public class StreamApiNumeric {
 
         integerList.stream()
                 .mapToInt(Integer::intValue)
-                .forEach(x-> System.out.print(x+", "));
+                .forEach(x -> System.out.print(x + ", "));
 
+
+
+        /*
+         *   Stream API
+         *   generate()
+         * */
+        System.out.println("===generate()===");
+        IntStream generate = IntStream.generate(() -> (int) Math.random() * 10000);
+        generate.forEach(s -> System.out.print(generate + ", "));
 
     }
 

@@ -26,4 +26,9 @@ public interface ExampleFunctionalInterface {
 
     //Compile time error as this will violate the functional interface conditions
     //void implementMethod2();
+
+    //this method will not be overridden by the implementing class
+    static boolean equalsTo(int a, int b) {
+        return a == b;
+    }
 }

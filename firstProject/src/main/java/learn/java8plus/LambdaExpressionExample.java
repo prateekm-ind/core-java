@@ -1,5 +1,8 @@
 package learn.java8plus;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LambdaExpressionExample {
     private ExampleFunctionalInterface exampleInterface = (input) -> {
         System.out.println("input :"+ input);
@@ -15,9 +18,27 @@ public class LambdaExpressionExample {
         //possible because accessing the property inside the same class
         LambdaExpressionExample obj = new LambdaExpressionExample();
         obj.exampleInterface.implementMethod("Hello World");
+
+        List<String> stringList = new ArrayList<>();
+        ExampleFunctionalInterface exampleFunctionalInterface = (s)-> stringList.add(s);
+
+        exampleFunctionalInterface.implementMethod("BGIM");
+        System.out.println("StringList : "+ stringList);
+
+        //static method inside the ExampleFunctionalInterface
+        var isEqual = ExampleFunctionalInterface.equalsTo(10, 20);
+        System.out.println(isEqual);
     }
 
     public void method02(){
         System.out.println("Example public method");
+    }
+}
+
+class ImplementExampleInterface implements ExampleFunctionalInterface{
+
+    @Override
+    public void implementMethod(String input) {
+        System.out.println("ThoughtWorker");
     }
 }
