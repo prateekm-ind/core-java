@@ -1,4 +1,4 @@
-package learn.tree;
+package learn.tree.binarytree;
 
 public class TreeNode {
     int data;

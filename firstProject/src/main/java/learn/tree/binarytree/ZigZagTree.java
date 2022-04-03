@@ -1,7 +1,5 @@
 package learn.tree.binarytree;
 
-import learn.tree.TreeNode;
-
 import java.util.*;
 
 /*

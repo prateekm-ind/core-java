@@ -354,22 +354,37 @@ public class LinkedListApplication {
     public static LinkedListNode detectAndRemoveALoop(LinkedListNode head) {
         LinkedListNode slow = head;
         LinkedListNode fast = head;
-        while (fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-            if (slow==fast){
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
                 break;
             }
         }
-        if(slow!=fast){
+        if (slow != fast) {
             return head;
         }
-        slow=head;
-        while (slow.next!=fast.next){
-            slow=slow.next;
-            fast=fast.next;
+        slow = head;
+        while (slow.next != fast.next) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        fast.next=null;
+        fast.next = null;
         return head;
+    }
+
+    /**
+     * - Remove the node of linked-list element where val=node.data
+     * - recursive solution
+     * @param head
+     * @param val
+     * @return
+     */
+    public LinkedListNode removeElements(LinkedListNode head, int val) {
+        if (head == null) {
+            return head;
+        }
+        head.next = removeElements(head.next, val);
+        return head.data == val ? head.next : head;
     }
 }

@@ -1,4 +1,4 @@
-package learn.tree;
+package learn.tree.binarytree;
 
 import java.util.*;
 
@@ -701,4 +701,5 @@ public class TreeApplication {
     }
 
     //zigzag iteration of a binary tree
+
 }

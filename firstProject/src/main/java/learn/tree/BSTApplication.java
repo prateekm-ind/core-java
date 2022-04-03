@@ -1,6 +1,9 @@
 package learn.tree;
 
 
+import learn.tree.binarytree.TreeApplication;
+import learn.tree.binarytree.TreeNode;
+
 import java.util.Stack;
 
 public class BSTApplication {
@@ -31,8 +34,12 @@ public class BSTApplication {
         root.left.right = new BSTNode(100);
         System.out.println("isBST: " + validateTreeIsBST(root));
 
-        System.out.println("LCA: "+getLCA(root, 3, 18).val);
-        System.out.println("LCA: "+getLCA(root, 18,80).val);
+        System.out.println("LCA: " + getLCA(root, 3, 18).val);
+        System.out.println("LCA: " + getLCA(root, 18, 80).val);
+
+        int[] arr = {8,5,1,7,10,12};
+        //constructBinaryTreeFromPostOrder(arr);
+
     }
 
     public static void inOrderTraversal(BSTNode treeNode) {
@@ -259,13 +266,15 @@ public class BSTApplication {
         inOrderTraversal(root.left, k, res);
     }
 
-    //Idea : to use count to track the kth smallest value
+    /**
+     * Idea : to use count to track the kth smallest value
+     */
     private static int iterativeInOrder(BSTNode root, int k) {
         Stack<BSTNode> stack = new Stack();
         stack.push(root);
         BSTNode node = root;
         int count = 0;
-        while (root != null || !stack.isEmpty()) {
+        while (node != null || !stack.isEmpty()) {
 
             while (node != null) {
                 stack.push(node);
@@ -281,7 +290,12 @@ public class BSTApplication {
         return node.val;
     }
 
-    //Idea : to use count to track the kth largest value
+    /**
+     * Idea : to use count to track the kth largest value
+     * @param root
+     * @param k
+     * @return
+     */
     private static int iterativeInOrderForKthLargest(BSTNode root, int k) {
         Stack<BSTNode> stack = new Stack();
         stack.push(root);
@@ -317,9 +331,11 @@ public class BSTApplication {
         return node.val;
     }
 
-    //Idea: replace the node to be deleted with the
-    // closest lower value or higher value
-    // to find closest lower and closest higher value use inorder traversal
+    /**
+     * Idea: replace the node to be deleted with the
+     * closest lower value or higher value
+     * to find closest lower and closest higher value use inorder traversal
+     */
     public BSTNode deleteBSTNode(BSTNode root, int k) {
         if (root == null) {
             return null;
@@ -350,7 +366,7 @@ public class BSTApplication {
         return curr;
     }
 
-    /*
+    /**
      * - LCA - the least common ancestor of any two given nodes
      */
     public static BSTNode getLCA(BSTNode root, int x, int y) {
@@ -367,4 +383,57 @@ public class BSTApplication {
         }
         return root;
     }
+
+    /**
+     * - Construct a BST using from preorder traversal
+     * -
+     * */
+    /*
+    public static void constructBinaryTreeFromPostOrder(int[] arr) {
+        TreeNode root = null;
+        int index = 0;
+        constructBinaryTreeHelper(arr, index, root);
+        TreeApplication.inOrderTraversal(root);
+    }
+
+
+    private static void constructBinaryTreeHelper(int[] arr, int index, TreeNode root) {
+        root = new TreeNode(arr[index]);
+        index++;
+        int left = constructLeftTree(arr, index, root);
+        constructRightTree(arr, left, root);
+    }
+
+
+    private static int constructLeftTree(int[] arr, int index, TreeNode root) {
+        if (index >= arr.length || arr[index] > arr[0]) {
+            return index;
+        }
+        if (root.data > arr[index]) {
+            root.left = new TreeNode(arr[index]);
+            root = root.getLeft();
+        }
+        if (root.data < arr[index]) {
+            root.right = new TreeNode(arr[index]);
+            root = root.getRight();
+        }
+        index++;
+        return constructLeftTree(arr, index, root);
+    }
+
+    private static void constructRightTree(int[] arr, int index, TreeNode root) {
+        if (index >= arr.length) {
+            return;
+        }
+        if (root.data > arr[index]) {
+            root.left = new TreeNode(arr[index]);
+            root = root.getLeft();
+        }
+        if (root.data < arr[index]) {
+            root.right = new TreeNode(arr[index]);
+            root = root.getRight();
+        }
+        index++;
+        constructLeftTree(arr, index, root);
+    }*/
 }
